@@ -4,8 +4,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/zach-klippenstein/goadb/internal/errors"
-	"github.com/zach-klippenstein/goadb/wire"
+	"github.com/palverdata/goadb/internal/errors"
+	"github.com/palverdata/goadb/wire"
 )
 
 // MockServer implements Server, Scanner, and Sender.

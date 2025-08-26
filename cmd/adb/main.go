@@ -8,9 +8,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/cheggaaa/pb"
-	"github.com/zach-klippenstein/goadb"
-	"gopkg.in/alecthomas/kingpin.v2"
+	"github.com/alecthomas/kingpin/v2"
+	"github.com/cheggaaa/pb/v3"
+	adb "github.com/palverdata/goadb"
 )
 
 const StdIoFilename = "-"
@@ -253,15 +253,15 @@ func push(showProgress bool, localPath, remotePath string, device adb.DeviceDesc
 func copyWithProgressAndStats(dst io.Writer, src io.Reader, size int, showProgress bool) error {
 	var progress *pb.ProgressBar
 	if showProgress && size > 0 {
-		progress = pb.New(size)
-		// Write to stderr in case dst is stdout.
-		progress.Output = os.Stderr
-		progress.ShowSpeed = true
-		progress.ShowPercent = true
-		progress.ShowTimeLeft = true
-		progress.SetUnits(pb.U_BYTES)
-		progress.Start()
-		dst = io.MultiWriter(dst, progress)
+		// progress = pb.New(size)
+		// // Write to stderr in case dst is stdout.
+		// progress.Output = os.Stderr
+		// progress.ShowSpeed = true
+		// progress.ShowPercent = true
+		// progress.ShowTimeLeft = true
+		// progress.SetUnits(pb.U_BYTES)
+		// progress.Start()
+		// dst = io.MultiWriter(dst, progress)
 	}
 
 	startTime := time.Now()
